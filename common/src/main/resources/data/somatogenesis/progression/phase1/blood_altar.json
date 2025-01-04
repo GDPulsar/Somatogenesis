@@ -1,0 +1,14 @@
+{
+  "icon": "somatogenesis:tier_1_blood_altar",
+  "x": -100,
+  "y": 150,
+  "parents": [
+    "somatogenesis:phase1/blood"
+  ],
+  "requirements": [
+    {
+      "type": "blood",
+      "blood": 20
+    }
+  ]
+}

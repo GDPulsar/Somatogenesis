@@ -1,0 +1,44 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "somatogenesis:item/empty_capsule"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "somatogenesis:blood": 0.15
+      },
+      "model": "somatogenesis:item/blood_capsule_filled_1"
+    },
+    {
+      "predicate": {
+        "somatogenesis:blood": 0.3
+      },
+      "model": "somatogenesis:item/blood_capsule_filled_2"
+    },
+    {
+      "predicate": {
+        "somatogenesis:blood": 0.55
+      },
+      "model": "somatogenesis:item/blood_capsule_filled_3"
+    },
+    {
+      "predicate": {
+        "somatogenesis:blood": 0.7
+      },
+      "model": "somatogenesis:item/blood_capsule_filled_4"
+    },
+    {
+      "predicate": {
+        "somatogenesis:blood": 0.85
+      },
+      "model": "somatogenesis:item/blood_capsule_filled_5"
+    },
+    {
+      "predicate": {
+        "somatogenesis:blood": 1
+      },
+      "model": "somatogenesis:item/blood_capsule_filled_6"
+    }
+  ]
+}

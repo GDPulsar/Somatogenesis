@@ -1,0 +1,18 @@
+{
+  "icon": "somatogenesis:refined_blood_gem",
+  "x": -50,
+  "y": 800,
+  "parents": [
+    "somatogenesis:phase2/blood_altar_upgrade"
+  ],
+  "requirements": [
+    {
+      "type": "advancement",
+      "advancement": "somatogenesis:tier_2_blood_altar"
+    },
+    {
+      "type": "blood",
+      "blood": 250
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "type": "somatogenesis:cruncher",
+  "ingredient": {
+    "ingredient": {"item": "minecraft:gravel"},
+    "count": 1
+  },
+  "lootTable": "somatogenesis:crunching/gravel"
+}

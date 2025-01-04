@@ -1,0 +1,15 @@
+{
+  "type": "somatogenesis:blood_altar",
+  "ingredients": [
+    {
+      "ingredient": { "item": "minecraft:diamond" },
+      "count": 1
+    }
+  ],
+  "blood": 50,
+  "result": {
+    "item": "somatogenesis:refined_blood_gem",
+    "count": 1
+  },
+  "unlock": "somatogenesis:phase2/blood_gems_2"
+}

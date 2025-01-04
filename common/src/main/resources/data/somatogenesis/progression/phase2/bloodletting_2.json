@@ -1,0 +1,14 @@
+{
+  "icon": "somatogenesis:syringe",
+  "x": 75,
+  "y": 825,
+  "parents": [
+    "somatogenesis:phase2/blood_transfusion"
+  ],
+  "requirements": [
+    {
+      "type": "blood",
+      "blood": 500
+    }
+  ]
+}

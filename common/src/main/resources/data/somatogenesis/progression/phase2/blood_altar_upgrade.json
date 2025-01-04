@@ -1,0 +1,25 @@
+{
+  "icon": "somatogenesis:tier_2_blood_altar",
+  "x": -50,
+  "y": 700,
+  "parents": [
+    "somatogenesis:phase2/flesh"
+  ],
+  "requirements": [
+    {
+      "type": "item",
+      "ingredient": {
+        "ingredient": {"item": "somatogenesis:flesh"},
+        "count": 4
+      }
+    },
+    {
+      "type": "experience",
+      "experience": 5
+    },
+    {
+      "type": "blood",
+      "blood": 200
+    }
+  ]
+}

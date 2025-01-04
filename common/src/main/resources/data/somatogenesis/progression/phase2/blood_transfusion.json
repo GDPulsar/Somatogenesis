@@ -1,0 +1,18 @@
+{
+  "icon": "somatogenesis:syringe",
+  "x": 75,
+  "y": 775,
+  "parents": [
+    "somatogenesis:phase2/blood_altar_upgrade"
+  ],
+  "requirements": [
+    {
+      "type": "advancement",
+      "advancement": "somatogenesis:tier_2_blood_altar"
+    },
+    {
+      "type": "blood",
+      "blood": 250
+    }
+  ]
+}

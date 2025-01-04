@@ -1,0 +1,18 @@
+{
+  "icon": "somatogenesis:empty_capsule",
+  "x": -50,
+  "y": 400,
+  "parents": [
+    "somatogenesis:phase1/evolution_research"
+  ],
+  "requirements": [
+    {
+      "type": "experience",
+      "experience": 5
+    },
+    {
+      "type": "blood",
+      "blood": 50
+    }
+  ]
+}

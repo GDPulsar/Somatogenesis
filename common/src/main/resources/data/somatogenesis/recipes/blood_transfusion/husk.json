@@ -1,0 +1,14 @@
+{
+  "type": "somatogenesis:blood_transfusion",
+  "entityType": "minecraft:husk",
+  "modifiers": [
+    {
+      "attribute": "somatogenesis:bloodletting",
+      "uuid": "b6e5ee89-ce97-478b-96f5-1d108c098126",
+      "amount": 0.02,
+      "operation": 0
+    }
+  ],
+  "effects": [],
+  "problemThreshold": 20
+}

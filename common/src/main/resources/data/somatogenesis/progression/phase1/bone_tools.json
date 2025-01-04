@@ -1,0 +1,19 @@
+{
+  "icon": "somatogenesis:bone_pickaxe",
+  "x": 100,
+  "y": 100,
+  "parents": [
+    "somatogenesis:phase1/blood"
+  ],
+  "requirements": [
+    {
+      "type": "item",
+      "ingredient": {
+        "ingredient": {
+          "item": "minecraft:bone"
+        },
+        "count": 16
+      }
+    }
+  ]
+}

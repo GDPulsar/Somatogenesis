@@ -1,0 +1,19 @@
+{
+  "type": "somatogenesis:blood_altar",
+  "ingredients": [
+    {
+      "ingredient": { "item": "minecraft:glass" },
+      "count": 2
+    },
+    {
+      "ingredient": { "item": "minecraft:iron_nugget" },
+      "count": 4
+    }
+  ],
+  "blood": 50,
+  "result": {
+    "item": "somatogenesis:syringe",
+    "count": 1
+  },
+  "unlock": "somatogenesis:phase2/blood_transfusion"
+}

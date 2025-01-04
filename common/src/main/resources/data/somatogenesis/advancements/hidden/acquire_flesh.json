@@ -1,0 +1,16 @@
+{
+  "criteria": {
+    "creature": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "somatogenesis:flesh"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

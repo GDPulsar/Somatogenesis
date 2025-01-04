@@ -1,0 +1,11 @@
+{
+  "icon": "somatogenesis:blood_altar",
+  "x": 0,
+  "y": 0,
+  "requirements": [
+    {
+      "type": "advancement",
+      "advancement": "minecraft:adventure/kill_a_mob"
+    }
+  ]
+}

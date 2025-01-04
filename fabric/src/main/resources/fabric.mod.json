@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "somatogenesis",
+  "version": "${version}",
+  "name": "Somatogenesis",
+  "description": "A magic system themed around the control of blood and bone.",
+  "authors": [
+    "GDPulsar"
+  ],
+  "contact": {
+    "homepage": ""
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/somatogenesis/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.pulsar.somatogenesis.SomatogenesisFabric"
+    ],
+    "client": [
+      "com.pulsar.somatogenesis.client.SomatogenesisFabricClient"
+    ],
+    "emi": [
+      "com.pulsar.somatogenesis.compat.emi.SomatogenesisEmiPlugin"
+    ]
+  },
+  "mixins": [
+    "somatogenesis.mixins.json",
+    "somatogenesis_fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "architectury": ">=9.2.14",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

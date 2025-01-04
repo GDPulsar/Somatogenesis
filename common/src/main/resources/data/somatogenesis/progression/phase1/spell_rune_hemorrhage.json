@@ -1,0 +1,14 @@
+{
+  "icon": "somatogenesis:blood_bucket",
+  "x": 50,
+  "y": 325,
+  "parents": [
+    "somatogenesis:phase1/basic_spells"
+  ],
+  "requirements": [
+    {
+      "type": "experience",
+      "experience": 10
+    }
+  ]
+}

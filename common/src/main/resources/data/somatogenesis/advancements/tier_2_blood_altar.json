@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "somatogenesis:tier_2_blood_altar"
+    },
+    "title": {
+      "translate": "advancement.somatogenesis.tier_2_blood_altar",
+      "color": "#ff0000"
+    },
+    "description": {
+      "translate": "advancement.somatogenesis.tier_2_blood_altar.description"
+    },
+    "frame": "task"
+  },
+  "parent": "somatogenesis:the_first_creature",
+  "criteria": {
+    "blood_altar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "somatogenesis:tier_2_blood_altar"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

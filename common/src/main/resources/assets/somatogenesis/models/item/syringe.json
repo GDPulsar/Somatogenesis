@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "somatogenesis:item/syringe_empty"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "somatogenesis:filled": 1
+      },
+      "model": "somatogenesis:item/syringe_filled"
+    }
+  ]
+}

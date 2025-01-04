@@ -1,0 +1,38 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "somatogenesis:item/blood_vial_empty"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "somatogenesis:blood": 0.15
+      },
+      "model": "somatogenesis:item/blood_vial_filled_1"
+    },
+    {
+      "predicate": {
+        "somatogenesis:blood": 0.35
+      },
+      "model": "somatogenesis:item/blood_vial_filled_2"
+    },
+    {
+      "predicate": {
+        "somatogenesis:blood": 0.6
+      },
+      "model": "somatogenesis:item/blood_vial_filled_3"
+    },
+    {
+      "predicate": {
+        "somatogenesis:blood": 0.8
+      },
+      "model": "somatogenesis:item/blood_vial_filled_4"
+    },
+    {
+      "predicate": {
+        "somatogenesis:blood": 1
+      },
+      "model": "somatogenesis:item/blood_vial_filled_5"
+    }
+  ]
+}

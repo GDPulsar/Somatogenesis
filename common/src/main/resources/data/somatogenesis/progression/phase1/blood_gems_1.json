@@ -1,0 +1,14 @@
+{
+  "icon": "somatogenesis:simple_blood_gem",
+  "x": -100,
+  "y": 250,
+  "parents": [
+    "somatogenesis:phase1/blood_altar"
+  ],
+  "requirements": [
+    {
+      "type": "blood",
+      "blood": 50
+    }
+  ]
+}

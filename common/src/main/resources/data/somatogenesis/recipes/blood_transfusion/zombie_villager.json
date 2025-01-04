@@ -1,0 +1,14 @@
+{
+  "type": "somatogenesis:blood_transfusion",
+  "entityType": "minecraft:zombie",
+  "modifiers": [
+    {
+      "attribute": "somatogenesis:bloodletting",
+      "uuid": "067a97ee-3552-4aa9-b9ae-5285f269414a",
+      "amount": 0.02,
+      "operation": 0
+    }
+  ],
+  "effects": [],
+  "problemThreshold": 20
+}

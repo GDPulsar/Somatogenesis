@@ -1,0 +1,18 @@
+{
+  "icon": "somatogenesis:blood_mirror",
+  "x": 125,
+  "y": 825,
+  "parents": [
+    "somatogenesis:phase2/blood_transfusion"
+  ],
+  "requirements": [
+    {
+      "type": "advancement",
+      "advancement": "somatogenesis:transfusion_incompatibility"
+    },
+    {
+      "type": "blood",
+      "blood": 250
+    }
+  ]
+}

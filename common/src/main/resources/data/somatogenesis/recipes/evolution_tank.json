@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GgG",
+    "GEG",
+    "III"
+  ],
+  "key": {
+    "E": {
+      "item": "somatogenesis:evolutionary_mixture_capsule"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "g": {
+      "item": "minecraft:glowstone"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "somatogenesis:evolution_tank",
+    "count": 1
+  }
+}

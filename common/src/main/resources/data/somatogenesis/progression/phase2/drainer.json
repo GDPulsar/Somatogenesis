@@ -1,0 +1,22 @@
+{
+  "icon": "somatogenesis:drainer",
+  "x": -100,
+  "y": 1000,
+  "parents": [
+    "somatogenesis:phase2/vessels",
+    "somatogenesis:phase2/digesters"
+  ],
+  "requirements": [
+    {
+      "type": "item",
+      "ingredient": {
+        "ingredient": {"item": "somatogenesis:refined_blood_gem"},
+        "count": 1
+      }
+    },
+    {
+      "type": "blood",
+      "blood": 250
+    }
+  ]
+}

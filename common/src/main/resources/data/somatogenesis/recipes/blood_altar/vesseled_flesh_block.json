@@ -1,0 +1,15 @@
+{
+  "type": "somatogenesis:blood_altar",
+  "ingredients": [
+    {
+      "ingredient": { "item": "somatogenesis:flesh_block" },
+      "count": 1
+    }
+  ],
+  "blood": 25,
+  "result": {
+    "item": "somatogenesis:vesseled_flesh_block",
+    "count": 1
+  },
+  "unlock": "somatogenesis:phase2/vessels"
+}

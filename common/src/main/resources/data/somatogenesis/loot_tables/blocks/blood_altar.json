@@ -1,0 +1,80 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "somatogenesis:tier_1_blood_altar",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "somatogenesis:blood_altar",
+              "properties": {
+                "tier": "iron"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "somatogenesis:tier_2_blood_altar",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "somatogenesis:blood_altar",
+              "properties": {
+                "tier": "diamond"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "somatogenesis:tier_3_blood_altar",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "somatogenesis:blood_altar",
+              "properties": {
+                "tier": "flesh"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "somatogenesis:tier_4_blood_altar",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "somatogenesis:blood_altar",
+              "properties": {
+                "tier": "bone"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "somatogenesis:tier_5_blood_altar",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "somatogenesis:blood_altar",
+              "properties": {
+                "tier": "living"
+              }
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}

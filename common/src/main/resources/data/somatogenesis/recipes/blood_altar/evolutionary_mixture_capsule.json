@@ -1,0 +1,27 @@
+{
+  "type": "somatogenesis:blood_altar",
+  "ingredients": [
+    {
+      "ingredient": { "item": "somatogenesis:empty_capsule" },
+      "count": 1
+    },
+    {
+      "ingredient": { "item": "minecraft:water_bucket" },
+      "count": 1
+    },
+    {
+      "ingredient": { "item": "minecraft:glowstone_dust" },
+      "count": 16
+    },
+    {
+      "ingredient": { "item": "minecraft:blaze_powder" },
+      "count": 4
+    }
+  ],
+  "blood": 75,
+  "result": {
+    "item": "somatogenesis:evolutionary_mixture_capsule",
+    "count": 1
+  },
+  "unlock": "somatogenesis:phase1/evolutionary_mixture"
+}

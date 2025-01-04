@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "somatogenesis:basic_creature"
+    },
+    "title": {
+      "translate": "advancement.somatogenesis.the_first_creature",
+      "color": "#ff0000"
+    },
+    "description": {
+      "translate": "advancement.somatogenesis.the_first_creature.description"
+    }
+  },
+  "parent": "somatogenesis:evolution_tank",
+  "criteria": {
+    "creature": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "somatogenesis:basic_creature"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

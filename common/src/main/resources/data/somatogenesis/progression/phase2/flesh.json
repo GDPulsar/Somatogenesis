@@ -1,0 +1,14 @@
+{
+  "icon": "somatogenesis:flesh_block",
+  "x": 0,
+  "y": 650,
+  "parents": [
+    "somatogenesis:phase2/the_first_creature"
+  ],
+  "requirements": [
+    {
+      "type": "advancement",
+      "advancement": "somatogenesis:hidden/acquire_flesh"
+    }
+  ]
+}

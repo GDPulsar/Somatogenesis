@@ -1,0 +1,14 @@
+{
+  "icon": "somatogenesis:basic_creature",
+  "x": 0,
+  "y": 550,
+  "parents": [
+    "somatogenesis:phase1/evolution_tank"
+  ],
+  "requirements": [
+    {
+      "type": "advancement",
+      "advancement": "somatogenesis:the_first_creature"
+    }
+  ]
+}

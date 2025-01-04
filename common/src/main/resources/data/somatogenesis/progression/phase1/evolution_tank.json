@@ -1,0 +1,21 @@
+{
+  "icon": "somatogenesis:empty_capsule",
+  "x": -50,
+  "y": 450,
+  "parents": [
+    "somatogenesis:phase1/evolutionary_mixture"
+  ],
+  "requirements": [
+    {
+      "type": "blood",
+      "blood": 75
+    },
+    {
+      "type": "item",
+      "ingredient": {
+        "ingredient": {"item": "somatogenesis:evolutionary_mixture_capsule"},
+        "count": 1
+      }
+    }
+  ]
+}

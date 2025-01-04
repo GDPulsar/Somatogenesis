@@ -1,0 +1,18 @@
+{
+  "type": "somatogenesis:blood_altar",
+  "ingredients": [
+    {
+      "ingredient": { "item": "minecraft:emerald" },
+      "count": 2
+    },
+    {
+      "ingredient": { "item": "minecraft:diamond" },
+      "count": 2
+    }
+  ],
+  "blood": 125,
+  "result": {
+    "item": "somatogenesis:pristine_blood_gem",
+    "count": 1
+  }
+}

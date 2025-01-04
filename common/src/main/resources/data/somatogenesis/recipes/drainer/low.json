@@ -1,0 +1,7 @@
+{
+  "type": "somatogenesis:drainer",
+  "ingredient": {
+    "item": "minecraft:rotten_flesh"
+  },
+  "blood": 5
+}

@@ -1,0 +1,21 @@
+{
+  "icon": "somatogenesis:vesseled_flesh_block",
+  "x": -50,
+  "y": 950,
+  "parents": [
+    "somatogenesis:phase2/blood_gems_2"
+  ],
+  "requirements": [
+    {
+      "type": "item",
+      "ingredient": {
+        "ingredient": {"item": "somatogenesis:flesh_block"},
+        "count": 1
+      }
+    },
+    {
+      "type": "blood",
+      "blood": 100
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "somatogenesis:evolution_tank"
+    },
+    "title": {
+      "translate": "advancement.somatogenesis.evolution_tank",
+      "color": "#ff0000"
+    },
+    "description": {
+      "translate": "advancement.somatogenesis.evolution_tank.description"
+    },
+    "frame": "task"
+  },
+  "parent": "somatogenesis:tier_1_blood_altar",
+  "criteria": {
+    "blood_altar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "somatogenesis:evolution_tank"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

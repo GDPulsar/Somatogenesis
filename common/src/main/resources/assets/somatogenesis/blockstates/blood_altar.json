@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "tier=iron": { "model": "somatogenesis:block/blood_altar/blood_altar_iron" },
+    "tier=diamond": { "model": "somatogenesis:block/blood_altar/blood_altar_diamond" },
+    "tier=flesh": { "model": "somatogenesis:block/blood_altar/blood_altar_flesh" },
+    "tier=bone": { "model": "somatogenesis:block/blood_altar/blood_altar_bone" },
+    "tier=living": { "model": "somatogenesis:block/blood_altar/blood_altar_living" }
+  }
+}

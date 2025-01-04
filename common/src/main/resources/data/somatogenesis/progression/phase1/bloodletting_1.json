@@ -1,0 +1,14 @@
+{
+  "icon": "minecraft:diamond_sword",
+  "x": -150,
+  "y": 200,
+  "parents": [
+    "somatogenesis:phase1/blood"
+  ],
+  "requirements": [
+    {
+      "type": "blood",
+      "blood": 50
+    }
+  ]
+}

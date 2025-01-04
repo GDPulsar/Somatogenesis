@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "somatogenesis:block/cruncher"
+    },
+    "facing=east": {
+      "model": "somatogenesis:block/cruncher",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "somatogenesis:block/cruncher",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "somatogenesis:block/cruncher",
+      "y": 270
+    }
+  }
+}

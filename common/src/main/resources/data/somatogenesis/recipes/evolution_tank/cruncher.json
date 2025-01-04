@@ -1,0 +1,26 @@
+{
+  "type": "somatogenesis:evolution_tank",
+  "input": {
+    "item": "somatogenesis:basic_creature"
+  },
+  "ingredients": [
+    {
+      "ingredient": { "item": "somatogenesis:evolutionary_mixture_capsule" },
+      "count": 4
+    },
+    {
+      "ingredient": { "item": "minecraft:bone" },
+      "count": 8
+    },
+    {
+      "ingredient": { "tag": "minecraft:stone" },
+      "count": 16
+    }
+  ],
+  "time": 1200,
+  "result": {
+    "item": "somatogenesis:cruncher",
+    "count": 1
+  },
+  "unlock": "somatogenesis:phase2/digesters"
+}

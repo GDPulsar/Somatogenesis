@@ -1,0 +1,21 @@
+{
+  "icon": "somatogenesis:empty_capsule",
+  "x": -50,
+  "y": 350,
+  "parents": [
+    "somatogenesis:phase1/blood_gems_1"
+  ],
+  "requirements": [
+    {
+      "type": "experience",
+      "experience": 10
+    },
+    {
+      "type": "item",
+      "ingredient": {
+        "ingredient": {"item": "somatogenesis:simple_blood_gem"},
+        "count": 1
+      }
+    }
+  ]
+}

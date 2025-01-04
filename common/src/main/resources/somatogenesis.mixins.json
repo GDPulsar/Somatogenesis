@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "package": "com.pulsar.somatogenesis.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+    "level.ClientLevelBloodMoonMixin",
+    "level.ClientLevelGlobalBoostsMixin"
+  ],
+  "mixins": [
+    "LivingTransfusionMixin",
+    "PlayerProgressionMixin",
+    "ServerPlayerProgressionMixin",
+    "level.LevelBloodMoonMixin",
+    "level.LevelGlobalBoostsMixin",
+    "level.ServerLevelBloodMoonMixin",
+    "level.ServerLevelGlobalBoostsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

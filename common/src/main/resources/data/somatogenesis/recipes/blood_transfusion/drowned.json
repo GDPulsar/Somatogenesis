@@ -1,0 +1,14 @@
+{
+  "type": "somatogenesis:blood_transfusion",
+  "entityType": "minecraft:drowned",
+  "modifiers": [
+    {
+      "attribute": "somatogenesis:bloodletting",
+      "uuid": "5f447fbe-3579-4cc1-a8a2-2a1a26ac0cf1",
+      "amount": 0.02,
+      "operation": 0
+    }
+  ],
+  "effects": [],
+  "problemThreshold": 20
+}

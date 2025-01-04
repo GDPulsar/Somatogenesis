@@ -1,0 +1,15 @@
+{
+  "type": "somatogenesis:blood_altar",
+  "ingredients": [
+    {
+      "ingredient": { "item": "somatogenesis:empty_capsule" },
+      "count": 1
+    }
+  ],
+  "blood": 50,
+  "result": {
+    "item": "somatogenesis:blood_capsule",
+    "count": 1
+  },
+  "unlock": "somatogenesis:phase1/blood_capsule"
+}

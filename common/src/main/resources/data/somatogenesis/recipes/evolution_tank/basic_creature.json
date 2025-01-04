@@ -1,0 +1,30 @@
+{
+  "type": "somatogenesis:evolution_tank",
+  "input": {
+    "item": "minecraft:egg"
+  },
+  "ingredients": [
+    {
+      "ingredient": { "item": "somatogenesis:evolutionary_mixture_capsule" },
+      "count": 1
+    },
+    {
+      "ingredient": { "item": "minecraft:water_bucket" },
+      "count": 1
+    },
+    {
+      "ingredient": { "item": "minecraft:magma_block" },
+      "count": 4
+    },
+    {
+      "ingredient": { "item": "minecraft:glowstone_dust" },
+      "count": 16
+    }
+  ],
+  "time": 600,
+  "result": {
+    "item": "somatogenesis:basic_creature",
+    "count": 1
+  },
+  "unlock": "somatogenesis:phase1/evolution_tank"
+}

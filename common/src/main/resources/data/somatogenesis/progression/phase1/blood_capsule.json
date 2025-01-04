@@ -1,0 +1,14 @@
+{
+  "icon": "somatogenesis:blood_capsule",
+  "x": -50,
+  "y": 200,
+  "parents": [
+    "somatogenesis:phase1/blood_altar"
+  ],
+  "requirements": [
+    {
+      "type": "blood",
+      "blood": 30
+    }
+  ]
+}
