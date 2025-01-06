@@ -20,7 +20,7 @@ public abstract class VesselNetworkStorageEntity extends BlockEntity implements 
 
     @Override
     public int addBlood(int amount) {
-        int toAdd = Math.min(maxBlood - blood, blood);
+        int toAdd = Math.min(maxBlood - blood, amount);
         blood += toAdd;
         return amount - toAdd;
     }
