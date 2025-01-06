@@ -1,5 +1,6 @@
 package com.pulsar.somatogenesis.block;
 
+import com.pulsar.somatogenesis.Somatogenesis;
 import com.pulsar.somatogenesis.block.vessel_network.VesselNetworkStorageEntity;
 import com.pulsar.somatogenesis.item.BloodContainer;
 import com.pulsar.somatogenesis.recipe.BloodAltarRecipe;
@@ -39,16 +40,14 @@ public class BloodAltarBlockEntity extends VesselNetworkStorageEntity implements
     @Override
     public int addBlood(int amount) {
         int val = super.addBlood(amount);
-        this.setChanged();
-        this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 0);
+        sync();
         return val;
     }
 
     @Override
     public int takeBlood(int amount) {
         int val = super.takeBlood(amount);
-        this.setChanged();
-        this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 0);
+        sync();
         return val;
     }
 
@@ -68,6 +67,7 @@ public class BloodAltarBlockEntity extends VesselNetworkStorageEntity implements
         this.owner = player;
     }
 
+    @Override
     public int getMaxBlood() {
         BloodAltarBlock.Tier tier = this.getBlockState().getValue(BloodAltarBlock.TIER);
         return switch (tier) {
@@ -88,13 +88,17 @@ public class BloodAltarBlockEntity extends VesselNetworkStorageEntity implements
         for (int i = 0; i < 8; i++) {
             if (this.getItem(i).isEmpty()) {
                 this.setItem(i, current);
+                sync();
                 return ItemStack.EMPTY;
             } else {
                 if (this.getItem(i).isStackable() && this.getItem(i).is(current.getItem())) {
                     int toStack = Math.min(this.getItem(i).getMaxStackSize() - this.getItem(i).getCount(), current.getCount());
                     this.getItem(i).grow(toStack);
                     current.shrink(toStack);
-                    if (current.getCount() == 0) return ItemStack.EMPTY;
+                    if (current.getCount() == 0) {
+                        sync();
+                        return ItemStack.EMPTY;
+                    }
                 }
             }
         }
@@ -104,10 +108,17 @@ public class BloodAltarBlockEntity extends VesselNetworkStorageEntity implements
     public ItemStack takeItem() {
         for (int i = 7; i >= 0; i--) {
             if (!this.getItem(i).isEmpty()) {
+                sync();
                 return this.removeItem(i, this.items.get(i).getCount());
             }
         }
+        sync();
         return ItemStack.EMPTY;
+    }
+
+    public void sync() {
+        this.setChanged();
+        this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 0);
     }
 
     public void onBreak() {
@@ -122,6 +133,7 @@ public class BloodAltarBlockEntity extends VesselNetworkStorageEntity implements
         if (this.currentRecipe == null && !this.items.isEmpty()) {
             Optional<BloodAltarRecipe> recipe = this.level.getRecipeManager().getRecipeFor(SomatogenesisRecipes.BLOOD_ALTAR_TYPE.get(), this, this.level);
             recipe.ifPresent(o -> {
+                Somatogenesis.LOGGER.info("found valid recipe: {}", o.getId());
                 this.currentRecipe = o;
             });
         }
@@ -182,8 +194,17 @@ public class BloodAltarBlockEntity extends VesselNetworkStorageEntity implements
     }
 
     @Override
+    public CompoundTag getUpdateTag() {
+        CompoundTag tag = super.getUpdateTag();
+        tag.putInt("craftTick", craftTick);
+        ContainerHelper.saveAllItems(tag, this.items, true);
+        return tag;
+    }
+
+    @Override
     public void load(CompoundTag compoundTag) {
         craftTick = compoundTag.getInt("craftTick");
+        this.items.clear();
         ContainerHelper.loadAllItems(compoundTag, this.items);
         super.load(compoundTag);
     }

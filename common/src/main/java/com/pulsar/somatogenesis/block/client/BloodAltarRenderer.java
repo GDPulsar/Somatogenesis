@@ -45,6 +45,7 @@ public class BloodAltarRenderer implements BlockEntityRenderer<BloodAltarBlockEn
         int lightAbove = LevelRenderer.getLightColor(entity.getLevel(), entity.getBlockPos().above());
         for (int i = 0; i < entity.getItems().size(); i++) {
             ItemStack stack = entity.getItems().get(i);
+            if (stack.isEmpty()) continue;
             poseStack.pushPose();
             poseStack.translate(0.5f, 1.45f, 0.5f);
             poseStack.mulPose(new Quaternionf().rotationY(((entity.getLevel().getGameTime() + tickDelta) * 2.5f + angleStep * i) * Mth.DEG_TO_RAD));

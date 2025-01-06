@@ -61,6 +61,7 @@ public class BloodAltarRecipe implements Recipe<BloodAltarBlockEntity> {
     public boolean matches(BloodAltarBlockEntity blockEntity, Level level) {
         if (this.unlock.isPresent() && blockEntity.getOwner() != null) {
             if (!((ProgressionAccessor)blockEntity.getOwner()).somatogenesis$getProgression().unlocked(this.unlock.get())) {
+                //Somatogenesis.LOGGER.info("recipe {} not unlocked", this.getId());
                 return false;
             }
         }
@@ -73,9 +74,13 @@ public class BloodAltarRecipe implements Recipe<BloodAltarBlockEntity> {
                     if (amount == 0) break;
                 }
             }
-            if (amount != 0) return false;
+            if (amount != 0) {
+                //Somatogenesis.LOGGER.info("recipe {} not enough ingredients", this.getId());
+                return false;
+            }
         }
         for (int i = 0; i < blockEntity.getContainerSize(); i++) {
+            if (blockEntity.getItem(i).isEmpty()) continue;
             boolean valid = false;
             for (IngredientStack ingredient : this.getIngredientList()) {
                 if (ingredient.ingredient().test(blockEntity.getItem(i))) {
@@ -83,9 +88,13 @@ public class BloodAltarRecipe implements Recipe<BloodAltarBlockEntity> {
                     break;
                 }
             }
-            if (!valid) return false;
+            if (!valid) {
+                //Somatogenesis.LOGGER.info("recipe {} too many ingredients", this.getId());
+                return false;
+            }
         }
 
+        //if (this.blood > blockEntity.getBlood()) Somatogenesis.LOGGER.info("recipe {} not enough blood", this.getId());
         return this.blood <= blockEntity.getBlood();
     }
 
