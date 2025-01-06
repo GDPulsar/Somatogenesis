@@ -42,6 +42,9 @@ public class ProgressionTreeScreen extends Screen {
         super(component);
     }
 
+    private final int baseWidth = 960;
+    private final int baseHeight = 505;
+
     double scroll = 0;
     double scrollAmount = 0;
     boolean wasClicked = false;
@@ -53,8 +56,14 @@ public class ProgressionTreeScreen extends Screen {
     public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float f) {
         Player player = Minecraft.getInstance().player;
         if (player != null) {
-            guiGraphics.fill(0, 0, guiGraphics.guiWidth(), guiGraphics.guiWidth(), 0x33000000);
-            int rightTabWidth = (int)(rightTabOpen * guiGraphics.guiWidth() / 3f);
+            guiGraphics.pose().pushPose();
+            float widthScale = (float)guiGraphics.guiWidth()/baseWidth;
+            float heightScale = (float)guiGraphics.guiHeight()/baseHeight;
+            mouseX = (int)(mouseX * (1f/widthScale));
+            mouseY = (int)(mouseY * (1f/heightScale));
+            guiGraphics.pose().scale(widthScale, heightScale, 0f);
+            guiGraphics.fill(0, 0, 1000, 1000, 0x33000000);
+            int rightTabWidth = (int)(rightTabOpen * baseWidth / 3f);
             if (wasClicked) {
                 if (mouseX < guiGraphics.guiWidth() - rightTabWidth) {
                     if (selected != null) deselecting = true;
@@ -65,8 +74,8 @@ public class ProgressionTreeScreen extends Screen {
             int realMouseX = mouseX + rightTabWidth / 3;
             scroll += scrollAmount * Minecraft.getInstance().getDeltaFrameTime();
             scrollAmount *= 1f - Minecraft.getInstance().getDeltaFrameTime();
-            int middleX = guiGraphics.guiWidth() / 2;
-            int middleY = guiGraphics.guiHeight() / 4;
+            int middleX = baseWidth / 2;
+            int middleY = baseHeight / 4;
             ProgressionData progression = ((ProgressionAccessor)player).somatogenesis$getProgression();
             Tesselator tesselator = Tesselator.getInstance();
             BufferBuilder buffer = tesselator.getBuilder();
@@ -133,21 +142,22 @@ public class ProgressionTreeScreen extends Screen {
             }
 
             wasClicked = false;
+            guiGraphics.pose().popPose();
         }
     }
 
     float rightTabOpen = 0f;
     private void drawTab(GuiGraphics guiGraphics, ProgressionUnlock unlock, Player player, int mouseX, int mouseY) {
         RenderSystem.enableBlend();
-        int tabWidth = (int)(rightTabOpen * guiGraphics.guiWidth() / 3f);
-        int maxTabWidth = guiGraphics.guiWidth() / 3;
-        int left = guiGraphics.guiWidth() - tabWidth;
-        int textTop = guiGraphics.guiHeight() / 3;
+        int tabWidth = (int)(rightTabOpen * baseWidth / 3f);
+        int maxTabWidth = baseWidth / 3;
+        int left = baseWidth - tabWidth;
+        int textTop = baseHeight / 3;
 
         /// drawing tab
-        guiGraphics.fill(left, 0, guiGraphics.guiWidth(), guiGraphics.guiHeight(), 0xFF330000);
-        guiGraphics.vLine(left, 0, guiGraphics.guiHeight(), 0xFFFFFFFF);
-        guiGraphics.vLine(left + 1, 0, guiGraphics.guiHeight(), 0xFFFFFFFF);
+        guiGraphics.fill(left, 0, baseWidth, baseHeight, 0xFF330000);
+        guiGraphics.vLine(left, 0, baseHeight, 0xFFFFFFFF);
+        guiGraphics.vLine(left + 1, 0, baseHeight, 0xFFFFFFFF);
 
         // draw title
         guiGraphics.pose().pushPose();
