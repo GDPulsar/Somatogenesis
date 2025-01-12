@@ -10,6 +10,7 @@
   "mixins": [
     "LivingTransfusionMixin",
     "PlayerProgressionMixin",
+    "PlayerTeachingMixin",
     "ServerPlayerProgressionMixin",
     "level.LevelBloodMoonMixin",
     "level.LevelGlobalBoostsMixin",
