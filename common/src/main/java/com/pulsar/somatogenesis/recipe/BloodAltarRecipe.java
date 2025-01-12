@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.pulsar.somatogenesis.Somatogenesis;
 import com.pulsar.somatogenesis.accessor.ProgressionAccessor;
+import com.pulsar.somatogenesis.block.BloodAltarBlock;
 import com.pulsar.somatogenesis.block.BloodAltarBlockEntity;
 import com.pulsar.somatogenesis.registry.SomatogenesisRecipes;
 import net.minecraft.core.NonNullList;
@@ -29,13 +30,15 @@ public class BloodAltarRecipe implements Recipe<BloodAltarBlockEntity> {
     private final NonNullList<IngredientStack> ingredients;
     private final int blood;
     private final ItemStack result;
+    private final BloodAltarBlock.Tier tier;
     private final Optional<ResourceLocation> unlock;
 
-    public BloodAltarRecipe(ResourceLocation id, NonNullList<IngredientStack> ingredients, int blood, ItemStack result, Optional<ResourceLocation> unlock) {
+    public BloodAltarRecipe(ResourceLocation id, NonNullList<IngredientStack> ingredients, int blood, ItemStack result, BloodAltarBlock.Tier tier, Optional<ResourceLocation> unlock) {
         this.id = id;
         this.ingredients = ingredients;
         this.blood = blood;
         this.result = result;
+        this.tier = tier;
         this.unlock = unlock;
     }
 
@@ -139,8 +142,9 @@ public class BloodAltarRecipe implements Recipe<BloodAltarBlockEntity> {
             } else {
                 ItemStack result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "result"));
                 int blood = GsonHelper.getAsInt(jsonObject, "blood");
+                BloodAltarBlock.Tier tier = jsonObject.has("tier") ? BloodAltarBlock.Tier.fromString(GsonHelper.getAsString(jsonObject, "tier")) : BloodAltarBlock.Tier.IRON;
                 Optional<ResourceLocation> unlock = Optional.ofNullable(jsonObject.has("unlock") ? ResourceLocation.tryParse(GsonHelper.getAsString(jsonObject, "unlock", "")) : null);
-                return new BloodAltarRecipe(id, ingredients, blood, result, unlock);
+                return new BloodAltarRecipe(id, ingredients, blood, result, tier, unlock);
             }
         }
 
@@ -164,8 +168,9 @@ public class BloodAltarRecipe implements Recipe<BloodAltarBlockEntity> {
             ingredients.replaceAll(ignored -> new IngredientStack(Ingredient.fromNetwork(buf), buf.readInt()));
             int blood = buf.readInt();
             ItemStack result = buf.readItem();
+            BloodAltarBlock.Tier tier = BloodAltarBlock.Tier.values()[buf.readInt()];
             Optional<ResourceLocation> unlock = Optional.ofNullable(ResourceLocation.tryParse(buf.readUtf()));
-            return new BloodAltarRecipe(id, ingredients, blood, result, unlock);
+            return new BloodAltarRecipe(id, ingredients, blood, result, tier, unlock);
         }
 
         @Override
@@ -177,6 +182,7 @@ public class BloodAltarRecipe implements Recipe<BloodAltarBlockEntity> {
             }
             buf.writeInt(recipe.blood);
             buf.writeItem(recipe.result);
+            buf.writeInt(recipe.tier.ordinal());
             if (recipe.unlock.isPresent()) buf.writeUtf(recipe.unlock.toString());
             else buf.writeUtf("");
         }

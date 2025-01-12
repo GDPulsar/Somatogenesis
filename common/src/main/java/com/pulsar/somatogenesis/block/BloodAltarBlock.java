@@ -3,6 +3,7 @@ package com.pulsar.somatogenesis.block;
 import com.pulsar.somatogenesis.item.BloodContainer;
 import com.pulsar.somatogenesis.registry.SomatogenesisBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
@@ -12,6 +13,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -29,6 +31,8 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class BloodAltarBlock extends BaseEntityBlock {
     public static final EnumProperty<Tier> TIER = EnumProperty.create("tier", Tier.class);
@@ -146,6 +150,16 @@ public class BloodAltarBlock extends BaseEntityBlock {
         @Override
         public @NotNull String getSerializedName() {
             return this.name().toLowerCase();
+        }
+
+        public static Tier fromString(String tier) {
+            return switch (tier.toLowerCase()) {
+                case "diamond" -> DIAMOND;
+                case "flesh" -> FLESH;
+                case "bone" -> BONE;
+                case "living" -> LIVING;
+                default -> IRON;
+            };
         }
     }
 }

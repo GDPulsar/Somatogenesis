@@ -107,7 +107,7 @@ public class ProgressionTreeScreen extends Screen {
                 }
                 RenderSystem.disableBlend();
                 if (unlock.accessible(player)) {
-                    guiGraphics.blit(UNLOCK_BACKGROUND_TEXTURE, drawX - 12, drawY - 12, 0, 0, 24, 24, 24, 24);
+                    guiGraphics.blit(UNLOCK_BACKGROUND_TEXTURE, drawX - 12, drawY - 12, 5, 0, 0, 24, 24, 24, 24);
                     guiGraphics.drawCenteredString(Minecraft.getInstance().font, unlock.getTitle(), drawX, drawY - 25, 0xFFFFFF);
                     guiGraphics.renderItem(new ItemStack(unlock.icon()), drawX - 8, drawY - 8);
                     if (realMouseX >= drawX - tooltipAreaSize && realMouseX <= drawX + tooltipAreaSize && mouseY >= drawY - tooltipAreaSize && mouseY <= drawY + tooltipAreaSize) {

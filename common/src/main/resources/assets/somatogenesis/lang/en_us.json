@@ -38,10 +38,16 @@
   "block.somatogenesis.cruncher": "Cruncher",
   "block.somatogenesis.drainer": "Drainer",
 
+  "entity.somatogenesis.basic_creature": "Basic Creature",
+  "entity.somatogenesis.modular_creature": "Modular Creature",
+  "entity.somatogenesis.burrower": "Burrower",
+
   "container.somatogenesis.evolution_tank": "Evolution Tank",
 
   "somatogenesis.no_blood": "This has no blood...",
   "somatogenesis.transfusion_status": "Current Blood Percentages: ",
+
+  "emi.category.somatogenesis.blood_altar": "Blood Altar",
 
   "advancement.somatogenesis.root": "Somatogenesis",
   "advancement.somatogenesis.root.description": "The creation and modification of the body.",
