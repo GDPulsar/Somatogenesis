@@ -1,0 +1,20 @@
+{
+  "type": "somatogenesis:blood_transfusion",
+  "entityType": "minecraft:ravager",
+  "modifiers": [
+    {
+      "attribute": "minecraft:generic.max_health",
+      "uuid": "e0e4bc1c-bc2f-4ae7-823c-b252d3af8a90",
+      "amount": 0.04,
+      "operation": 2
+    },
+    {
+      "attribute": "somatogenesis:trade_cost",
+      "uuid": "b9bd4918-db48-407b-8f70-50d92c625ef9",
+      "amount": 0.05,
+      "operation": 2
+    }
+  ],
+  "effects": [],
+  "problemThreshold": 10
+}

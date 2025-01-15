@@ -6,7 +6,13 @@
       "attribute": "somatogenesis:bloodletting",
       "uuid": "3367c5a3-c064-4e8e-be38-2706e8ffc1ac",
       "amount": 0.02,
-      "operation": 0
+      "operation": 2
+    },
+    {
+      "attribute": "somatogenesis:exhaustion",
+      "uuid": "5ff85ab1-ca9b-4950-8aff-c559c685ffe0",
+      "amount": 0.02,
+      "operation": 2
     }
   ],
   "effects": [],

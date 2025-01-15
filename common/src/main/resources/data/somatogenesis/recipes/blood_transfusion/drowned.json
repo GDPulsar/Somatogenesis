@@ -6,7 +6,25 @@
       "attribute": "somatogenesis:bloodletting",
       "uuid": "5f447fbe-3579-4cc1-a8a2-2a1a26ac0cf1",
       "amount": 0.02,
-      "operation": 0
+      "operation": 2
+    },
+    {
+      "attribute": "somatogenesis:exhaustion",
+      "uuid": "87c4eafe-5995-4b56-b519-5c9bd9abb58c",
+      "amount": 0.02,
+      "operation": 2
+    },
+    {
+      "attribute": "somatogenesis:swim_speed",
+      "uuid": "1e2b9da4-bb0d-4907-95e9-a9f0fe1790e6",
+      "amount": 0.02,
+      "operation": 2
+    },
+    {
+      "attribute": "somatogenesis:breath_duration",
+      "uuid": "0fe250a5-7f2f-41b1-8de5-c7eb19a0ba48",
+      "amount": 0.02,
+      "operation": 2
     }
   ],
   "effects": [],

@@ -43,7 +43,6 @@ public abstract class LivingTransfusionMixin extends Entity implements Transfusi
 
     @Unique HashMap<EntityType<?>, Integer> blood = new HashMap<>();
     @Unique List<Pair<Attribute, AttributeModifier>> modifiers = new ArrayList<>();
-    @Unique int lastInjection = 0;
 
     @Override
     public HashMap<EntityType<?>, Integer> somatogenesis$getBlood() {
@@ -58,6 +57,7 @@ public abstract class LivingTransfusionMixin extends Entity implements Transfusi
     @Override
     public void somatogenesis$addBlood(EntityType<?> type, Integer amount) {
         blood.put(type, somatogenesis$getBloodOf(type) + amount);
+        if (blood.get(type) == 0) blood.remove(type);
     }
 
     @Unique private void somatogenesis$updateAttributes() {

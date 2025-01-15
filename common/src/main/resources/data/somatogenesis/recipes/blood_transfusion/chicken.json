@@ -1,0 +1,7 @@
+{
+  "type": "somatogenesis:blood_transfusion",
+  "entityType": "minecraft:chicken",
+  "modifiers": [],
+  "effects": [],
+  "problemThreshold": 20
+}

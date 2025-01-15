@@ -17,4 +17,9 @@ public class SomatogenesisAttributes {
     public static final RegistrationProvider<Attribute> ATTRIBUTES = RegistrationProvider.get(Registries.ATTRIBUTE, Somatogenesis.MOD_ID);
 
     public static RegistryObject<Attribute, Attribute> BLOODLETTING = ATTRIBUTES.register("bloodletting", () -> make("bloodletting", 1, 0.0, 1024.0));
+    public static RegistryObject<Attribute, Attribute> TRADE_COST = ATTRIBUTES.register("trade_cost", () -> make("trade_cost", 1, 0.0, 1024.0));
+    public static RegistryObject<Attribute, Attribute> JUMP_POWER = ATTRIBUTES.register("jump_power", () -> make("jump_power", 1, 0.0, 1024.0));
+    public static RegistryObject<Attribute, Attribute> SWIM_SPEED = ATTRIBUTES.register("swim_speed", () -> make("swim_speed", 1, 0.0, 1024.0));
+    public static RegistryObject<Attribute, Attribute> EXHAUSTION = ATTRIBUTES.register("exhaustion", () -> make("exhaustion", 1, 0.0, 1024.0));
+    public static RegistryObject<Attribute, Attribute> BREATH_DURATION = ATTRIBUTES.register("breath_duration", () -> make("breath_duration", 1, 0.0, 1024.0));
 }

@@ -1,0 +1,20 @@
+{
+  "type": "somatogenesis:blood_transfusion",
+  "entityType": "minecraft:evoker",
+  "modifiers": [
+    {
+      "attribute": "minecraft:generic.max_health",
+      "uuid": "40710a12-20a9-4eba-b294-b5bc9b066705",
+      "amount": 0.01,
+      "operation": 2
+    },
+    {
+      "attribute": "somatogenesis:trade_cost",
+      "uuid": "7b76b6f5-776f-4e72-b819-736fe322cf9b",
+      "amount": 0.02,
+      "operation": 2
+    }
+  ],
+  "effects": [],
+  "problemThreshold": 15
+}

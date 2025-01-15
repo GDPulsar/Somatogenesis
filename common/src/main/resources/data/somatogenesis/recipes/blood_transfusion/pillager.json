@@ -1,0 +1,20 @@
+{
+  "type": "somatogenesis:blood_transfusion",
+  "entityType": "minecraft:pillager",
+  "modifiers": [
+    {
+      "attribute": "minecraft:generic.max_health",
+      "uuid": "65973619-2e2b-47e6-9577-6b6084b3f841",
+      "amount": 0.01,
+      "operation": 2
+    },
+    {
+      "attribute": "somatogenesis:trade_cost",
+      "uuid": "ae8590da-da49-44cf-8246-d7044b9b5e56",
+      "amount": 0.02,
+      "operation": 2
+    }
+  ],
+  "effects": [],
+  "problemThreshold": 15
+}

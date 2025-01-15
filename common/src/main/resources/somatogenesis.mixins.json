@@ -8,10 +8,13 @@
     "level.ClientLevelGlobalBoostsMixin"
   ],
   "mixins": [
+    "LivingAttributeMixin",
     "LivingTransfusionMixin",
+    "PlayerAttributeMixin",
     "PlayerProgressionMixin",
     "PlayerTeachingMixin",
     "ServerPlayerProgressionMixin",
+    "VillagerMixin",
     "level.LevelBloodMoonMixin",
     "level.LevelGlobalBoostsMixin",
     "level.ServerLevelBloodMoonMixin",

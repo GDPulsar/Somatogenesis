@@ -1,0 +1,26 @@
+{
+  "type": "somatogenesis:blood_transfusion",
+  "entityType": "minecraft:horse",
+  "modifiers": [
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "uuid": "0f9484cc-36bd-4fd4-9be0-c2bfe4fa6511",
+      "amount": 0.02,
+      "operation": 2
+    },
+    {
+      "attribute": "somatogenesis:jump_power",
+      "uuid": "54b1a77e-d77f-4438-a1e5-653d28152d31",
+      "amount": 0.02,
+      "operation": 2
+    },
+    {
+      "attribute": "somatogenesis:swim_speed",
+      "uuid": "64171170-b83f-4ca9-96eb-65736ae63987",
+      "amount": -0.04,
+      "operation": 2
+    }
+  ],
+  "effects": [],
+  "problemThreshold": 15
+}

@@ -1,0 +1,14 @@
+{
+  "type": "somatogenesis:blood_transfusion",
+  "entityType": "minecraft:wither",
+  "modifiers": [
+    {
+      "attribute": "minecraft:generic.max_health",
+      "uuid": "15c04a26-37e4-4045-9680-bf8e10693d6e",
+      "amount": 0.5,
+      "operation": 2
+    }
+  ],
+  "effects": [],
+  "problemThreshold": 2
+}
