@@ -15,6 +15,9 @@ public class SomatogenesisRecipes {
     public static RegistrySupplier<RecipeType<BloodAltarRecipe>> BLOOD_ALTAR_TYPE = TYPES.register("blood_altar", BloodAltarRecipe.Type::new);
     public static RegistrySupplier<RecipeSerializer<BloodAltarRecipe>> BLOOD_ALTAR_SERIALIZER = SERIALIZERS.register("blood_altar", BloodAltarRecipe.Serializer::new);
 
+    public static RegistrySupplier<RecipeType<BloodAltarUpgradeRecipe>> BLOOD_ALTAR_UPGRADE_TYPE = TYPES.register("blood_altar_upgrade", BloodAltarUpgradeRecipe.Type::new);
+    public static RegistrySupplier<RecipeSerializer<BloodAltarUpgradeRecipe>> BLOOD_ALTAR_UPGRADE_SERIALIZER = SERIALIZERS.register("blood_altar_upgrade", BloodAltarUpgradeRecipe.Serializer::new);
+
     public static RegistrySupplier<RecipeType<EvolutionTankRecipe>> EVOLUTION_TANK_TYPE = TYPES.register("evolution_tank", EvolutionTankRecipe.Type::new);
     public static RegistrySupplier<RecipeSerializer<EvolutionTankRecipe>> EVOLUTION_TANK_SERIALIZER = SERIALIZERS.register("evolution_tank", EvolutionTankRecipe.Serializer::new);
 

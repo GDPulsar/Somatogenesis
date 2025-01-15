@@ -13,6 +13,8 @@ import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.Containers;
@@ -135,11 +137,17 @@ public abstract class DigesterBlockEntity extends BlockEntity implements Impleme
                 return;
             }
             craftTick++;
+            if (craftTick % 20 == 0) {
+                if (this.getLevel() instanceof ServerLevel serverLevel) {
+                    serverLevel.playSound(null, this.getBlockPos(), SoundEvents.GENERIC_EAT, SoundSource.BLOCKS, 1f, 1f);
+                }
+            }
             if (craftTick >= 200) {
                 Vec3i normal = this.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING).getNormal();
                 Vec3 direction = new Vec3(normal.getX(), 0.5f, normal.getZ()).scale(0.2f);
                 Vec3 spawnPos = this.getBlockPos().getCenter().relative(this.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING), 0.5);
                 if (this.level instanceof ServerLevel serverLevel) {
+                    serverLevel.playSound(null, this.getBlockPos(), SoundEvents.PLAYER_BURP, SoundSource.BLOCKS, 1f, 1f);
                     LootParams.Builder builder = new LootParams.Builder(serverLevel);
                     ResourceLocation resourceLocation = this.currentRecipe.getLootTable();
                     LootParams lootParams = builder.create(LootContextParamSets.EMPTY);

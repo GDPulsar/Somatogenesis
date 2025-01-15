@@ -6,6 +6,7 @@
       "count": 1
     }
   ],
+  "tier": "diamond",
   "blood": 50,
   "result": {
     "item": "somatogenesis:refined_blood_gem",

@@ -5,6 +5,8 @@ import com.pulsar.somatogenesis.registry.SomatogenesisBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
@@ -61,7 +63,7 @@ public class BloodAltarBlock extends BaseEntityBlock {
 
     @Override
     public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
-        //TODO: blood bubble sound
+        serverLevel.playSound(null, blockPos, SoundEvents.BUBBLE_COLUMN_UPWARDS_INSIDE, SoundSource.BLOCKS, 1f, 0.5f);
         super.randomTick(blockState, serverLevel, blockPos, randomSource);
     }
 

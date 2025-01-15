@@ -1,0 +1,13 @@
+{
+  "type": "somatogenesis:blood_altar_upgrade",
+  "ingredients": [
+    {
+      "ingredient": { "item": "minecraft:diamond_block" },
+      "count": 2
+    }
+  ],
+  "blood": 100,
+  "tier": "iron",
+  "upgradeTo": "diamond",
+  "unlock": "somatogenesis:phase2/blood_altar_upgrade"
+}
