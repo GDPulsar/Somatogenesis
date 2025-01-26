@@ -20,6 +20,16 @@ public class BasicSightModule implements CreatureModule {
     public void readNbt(CompoundTag nbt) {}
 
     @Override
+    public ModuleType getType() {
+        return ModuleType.SENSOR;
+    }
+
+    @Override
+    public double getWeight() {
+        return 0.1;
+    }
+
+    @Override
     public boolean shouldUpdate(ModularCreatureEntity creature) {
         return true;
     }

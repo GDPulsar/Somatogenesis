@@ -7,12 +7,14 @@ import com.pulsar.somatogenesis.block.client.SpellRuneRenderer;
 import com.pulsar.somatogenesis.client.ProgressionTreeScreen;
 import com.pulsar.somatogenesis.event.FillBloodContainersEvent;
 import com.pulsar.somatogenesis.item.BloodContainer;
+import com.pulsar.somatogenesis.item.BloodGauntletItem;
 import com.pulsar.somatogenesis.menu.EvolutionTankScreen;
 import com.pulsar.somatogenesis.registry.*;
 import com.pulsar.somatogenesis.reload.ProgressionUnlockReloadListener;
 import com.pulsar.somatogenesis.reload.RuneReloadListener;
 import com.pulsar.somatogenesis.util.BloodUtils;
 import dev.architectury.event.EventResult;
+import dev.architectury.event.events.client.ClientRawInputEvent;
 import dev.architectury.event.events.client.ClientTickEvent;
 import dev.architectury.event.events.common.EntityEvent;
 import dev.architectury.registry.ReloadListenerRegistry;
@@ -25,6 +27,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,6 +74,7 @@ public final class Somatogenesis {
             "key.somatogenesis.progression_key", InputConstants.Type.KEYSYM, InputConstants.KEY_I, "category.somatogenesis"
     );
 
+    public static int selectedShape = 0;
     public static void initClient() {
         SomatogenesisNetworking.registerClient();
 
@@ -80,6 +84,20 @@ public final class Somatogenesis {
             while (PROGRESSION.consumeClick()) {
                 minecraft.setScreen(new ProgressionTreeScreen(Component.empty()));
             }
+        });
+
+        ClientRawInputEvent.MOUSE_SCROLLED.register((minecraft, v) -> {
+            if (minecraft.player.isUsingItem()) {
+                ItemStack stack = minecraft.player.getUseItem();
+                if (stack.is(SomatogenesisItems.BLOOD_GAUNTLET.get())) {
+                    if (stack.getItem() instanceof BloodGauntletItem bloodGauntlet) {
+                        selectedShape = (((int)v) + selectedShape) % BloodGauntletItem.Shape.values().length;
+                        while (selectedShape < 0) selectedShape += BloodGauntletItem.Shape.values().length;
+                        return EventResult.interruptTrue();
+                    }
+                }
+            }
+            return EventResult.pass();
         });
 
         ItemPropertiesRegistry.registerGeneric(reloc("blood"), (itemStack, clientLevel, livingEntity, i) -> {

@@ -129,4 +129,7 @@ public class SomatogenesisItems {
 
     public static RegistrySupplier<Item> FLESH = ITEMS.register("flesh", () -> new Item(
             new Item.Properties().rarity(Rarity.COMMON).arch$tab(SomatogenesisTabs.SOMATOGENESIS_TAB)));
+
+    public static RegistrySupplier<Item> BLOOD_GAUNTLET = ITEMS.register("blood_gauntlet", () -> new BloodGauntletItem(
+            new Item.Properties().rarity(Rarity.RARE).stacksTo(1).arch$tab(SomatogenesisTabs.SOMATOGENESIS_TAB)));
 }

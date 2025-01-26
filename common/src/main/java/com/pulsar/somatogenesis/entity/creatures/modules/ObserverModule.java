@@ -22,6 +22,16 @@ public class ObserverModule implements CreatureModule {
     @Override
     public void readNbt(CompoundTag nbt) {}
 
+    @Override
+    public ModuleType getType() {
+        return ModuleType.SENSOR;
+    }
+
+    @Override
+    public double getWeight() {
+        return 0.2;
+    }
+
     BlockPos lastPos = null;
     BlockState lastState = null;
     @Override

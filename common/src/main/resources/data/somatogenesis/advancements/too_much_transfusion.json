@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "item": "somatogenesis:syringe"
+    },
+    "title": {
+      "translate": "advancement.somatogenesis.too_much_transfusion",
+      "color": "#ff0000"
+    },
+    "description": {
+      "translate": "advancement.somatogenesis.too_much_transfusion.description"
+    },
+    "frame": "task"
+  },
+  "parent": "somatogenesis:tier_2_blood_altar",
+  "criteria": {
+    "transfusion_danger": {
+      "trigger": "somatogenesis:transfusion_danger",
+      "dangerPercent": 1.0
+    }
+  }
+}

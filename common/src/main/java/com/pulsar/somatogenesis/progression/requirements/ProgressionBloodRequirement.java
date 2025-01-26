@@ -1,6 +1,7 @@
 package com.pulsar.somatogenesis.progression.requirements;
 
 import com.pulsar.somatogenesis.item.BloodContainer;
+import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -18,6 +19,16 @@ public class ProgressionBloodRequirement implements ProgressionRequirement {
     @Override
     public void submit(Player player) {
         List<ItemStack> containers = player.getInventory().items.stream().filter(stack -> stack.getItem() instanceof BloodContainer).toList();
+        for (ItemStack container : containers) {
+            if (container.getItem() instanceof BloodContainer bloodContainer) {
+                int toReduce = bloodRequirement - submitted;
+                int reduceBy = Math.min(toReduce, bloodContainer.getBlood(container));
+                bloodContainer.useBlood(container, reduceBy);
+                submitted += reduceBy;
+            }
+            if (submitted >= bloodRequirement) return;
+        }
+        containers = player.getInventory().offhand.stream().filter(stack -> stack.getItem() instanceof BloodContainer).toList();
         for (ItemStack container : containers) {
             if (container.getItem() instanceof BloodContainer bloodContainer) {
                 int toReduce = bloodRequirement - submitted;

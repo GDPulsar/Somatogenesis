@@ -29,7 +29,7 @@ public class BloodMirrorItem extends Item {
 
     @Override
     public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {
-        if (livingEntity instanceof Player player) {
+        if (livingEntity instanceof Player player && !level.isClientSide) {
             TransfusionAccessor transfusions = (TransfusionAccessor)player;
             MutableComponent text = Component.translatable("somatogenesis.transfusion_status");
             int i = 0;

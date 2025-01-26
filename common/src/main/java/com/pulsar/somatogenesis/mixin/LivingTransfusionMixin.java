@@ -3,10 +3,12 @@ package com.pulsar.somatogenesis.mixin;
 import com.mojang.datafixers.util.Pair;
 import com.pulsar.somatogenesis.accessor.TransfusionAccessor;
 import com.pulsar.somatogenesis.recipe.BloodTransfusionRecipe;
+import com.pulsar.somatogenesis.registry.SomatogenesisAdvancements;
 import com.pulsar.somatogenesis.registry.SomatogenesisEntities;
 import com.pulsar.somatogenesis.registry.SomatogenesisRecipes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -93,6 +95,9 @@ public abstract class LivingTransfusionMixin extends Entity implements Transfusi
                     BloodTransfusionRecipe recipe = valid.get(0);
                     sheVampireOnMyTransfusionTilIIssues += entry.getValue() / recipe.problemThreshold;
                 }
+            }
+            if ((LivingEntity)(Object)this instanceof ServerPlayer serverPlayer) {
+                SomatogenesisAdvancements.TRANSFUSION_DANGER.trigger(serverPlayer, sheVampireOnMyTransfusionTilIIssues);
             }
             if (sheVampireOnMyTransfusionTilIIssues >= 3f) {
                 this.kill();

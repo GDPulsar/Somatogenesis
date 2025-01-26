@@ -1,9 +1,7 @@
 package com.pulsar.somatogenesis.entity.creatures;
 
 import com.pulsar.somatogenesis.Somatogenesis;
-import com.pulsar.somatogenesis.entity.creatures.modules.BasicSightModule;
-import com.pulsar.somatogenesis.entity.creatures.modules.CreatureModule;
-import com.pulsar.somatogenesis.entity.creatures.modules.SculkModule;
+import com.pulsar.somatogenesis.entity.creatures.modules.*;
 import com.pulsar.somatogenesis.entity.creatures.modules.mobs.CreeperAppendixModule;
 import com.pulsar.somatogenesis.registry.SomatogenesisEntities;
 import com.pulsar.somatogenesis.teaching.TeachingStats;
@@ -37,7 +35,7 @@ import java.util.HashMap;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
-public class ModularCreatureEntity extends PathfinderMob implements VibrationSystem {
+public abstract class ModularCreatureEntity extends PathfinderMob implements VibrationSystem {
     private final HashMap<ResourceLocation, CreatureModule> modules = new HashMap<>();
     public final TeachingStats teachingStats = new TeachingStats();
 
@@ -48,6 +46,8 @@ public class ModularCreatureEntity extends PathfinderMob implements VibrationSys
     public ModularCreatureEntity(Level level) {
         super(SomatogenesisEntities.MODULAR_CREATURE.get(), level);
     }
+
+    public abstract ModuleStats getStats();
 
     LookAtPlayerGoal lookGoal = new LookAtPlayerGoal(this, Player.class, 8.0F);
 
@@ -83,12 +83,50 @@ public class ModularCreatureEntity extends PathfinderMob implements VibrationSys
         return Mob.createLivingAttributes().add(Attributes.FOLLOW_RANGE).add(Attributes.ATTACK_DAMAGE).add(Attributes.ATTACK_KNOCKBACK).add(Attributes.MOVEMENT_SPEED, 0.1);
     }
 
-    public void addModule(CreatureModule module) {
-        modules.put(module.getId(), module);
+    public int getLimbCount() {
+        int limbs = 0;
+        for (CreatureModule module : getModules()) {
+            if (module.getType() == ModuleType.LIMB) limbs++;
+        }
+        return limbs;
+    }
+
+    public int getOrganCount() {
+        int organs = 0;
+        for (CreatureModule module : getModules()) {
+            if (module.getType() == ModuleType.ORGAN) organs++;
+        }
+        return organs;
+    }
+
+    public int getSensorCount() {
+        int sensors = 0;
+        for (CreatureModule module : getModules()) {
+            if (module.getType() == ModuleType.SENSOR) sensors++;
+        }
+        return sensors;
+    }
+
+    public int getAccessoryCount() {
+        int accessories = 0;
+        for (CreatureModule module : getModules()) {
+            if (module.getType() == ModuleType.ACCESSORY) accessories++;
+        }
+        return accessories;
+    }
+
+    public boolean addModule(CreatureModule module) {
+        boolean canAdd = switch (module.getType()) {
+            case LIMB -> getLimbCount() < getStats().maxLimbCount();
+            case ORGAN -> getOrganCount() < getStats().maxOrganCount();
+            case SENSOR -> getSensorCount() < getStats().maxSensorCount();
+            case ACCESSORY -> getAccessoryCount() < getStats().maxAccessoryCount();
+        };
+        if (canAdd) modules.put(module.getId(), module);
+        return canAdd;
     }
 
     public boolean hasModule(ResourceLocation id) {
-        if (this.modules == null) return false;
         return modules.containsKey(id);
     }
 
@@ -173,9 +211,9 @@ public class ModularCreatureEntity extends PathfinderMob implements VibrationSys
         }
     }
 
-    private final DynamicGameEventListener<Listener> dynamicGameEventListener = new DynamicGameEventListener<>(new VibrationSystem.Listener(this));
-    private final VibrationSystem.User vibrationUser = new VibrationUser();
-    private final VibrationSystem.Data vibrationData = new VibrationSystem.Data();
+    private final DynamicGameEventListener<Listener> dynamicGameEventListener = new DynamicGameEventListener<>(new Listener(this));
+    private final User vibrationUser = new VibrationUser();
+    private final Data vibrationData = new Data();
     @Override
     public @NotNull Data getVibrationData() {
         return vibrationData;
@@ -186,7 +224,7 @@ public class ModularCreatureEntity extends PathfinderMob implements VibrationSys
         return vibrationUser;
     }
 
-    class VibrationUser implements VibrationSystem.User {
+    class VibrationUser implements User {
         private final PositionSource positionSource = new EntityPositionSource(ModularCreatureEntity.this, ModularCreatureEntity.this.getEyeHeight());
 
         VibrationUser() {

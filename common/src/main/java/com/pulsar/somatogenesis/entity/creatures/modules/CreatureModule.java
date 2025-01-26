@@ -8,6 +8,8 @@ public interface CreatureModule {
     ResourceLocation getId();
     CompoundTag writeNbt(CompoundTag nbt);
     void readNbt(CompoundTag nbt);
+    ModuleType getType();
+    double getWeight();
 
     boolean shouldUpdate(ModularCreatureEntity creature);
     void update(ModularCreatureEntity creature);

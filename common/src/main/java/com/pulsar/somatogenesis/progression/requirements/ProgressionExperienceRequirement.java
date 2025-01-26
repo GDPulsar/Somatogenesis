@@ -2,6 +2,7 @@ package com.pulsar.somatogenesis.progression.requirements;
 
 import com.pulsar.somatogenesis.item.BloodContainer;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -22,6 +23,9 @@ public class ProgressionExperienceRequirement implements ProgressionRequirement 
         if (toSubmit > 0) {
             int removed = Math.min(player.experienceLevel, toSubmit);
             player.experienceLevel -= removed;
+            if (player instanceof ServerPlayer serverPlayer) {
+                serverPlayer.setExperienceLevels(player.experienceLevel - removed);
+            }
             submitted += removed;
         }
     }
